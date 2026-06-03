@@ -78,7 +78,7 @@ export class WebCryptoEncryption {
       const key = await this.deriveKey(password, payload.salt)
 
       const plaintext = await crypto.subtle.decrypt(
-        { name: ENCRYPTION_CONFIG.cipherAlgorithm, iv: payload.iv },
+        { name: ENCRYPTION_CONFIG.cipherAlgorithm, iv: payload.iv as any },
         key,
         payload.ciphertext
       )
